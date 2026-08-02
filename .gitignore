@@ -1,1 +1,4 @@
 ai-command-assistant/.env
+.env
+__pycache__/
+*.pyc
