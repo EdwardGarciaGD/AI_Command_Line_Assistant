@@ -6,17 +6,13 @@ failures, and normalizes different provider response shapes.
 """
 
 from __future__ import annotations
-
 import logging
 import time
 from typing import Any
-
 import requests
-
 from config import load_settings
 
 logger = logging.getLogger(__name__)
-
 
 class AiClientError(Exception):
 	"""Raised when the AI client encounters an error the caller should see.

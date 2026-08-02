@@ -7,6 +7,19 @@ from __future__ import annotations
 import os
 from dataclasses import dataclass
 
+# Load values from a local .env file into the process environment during
+# development. In production, real environment variables or a secrets
+# manager should be used instead; loading .env is a convenience.
+try:
+    from dotenv import load_dotenv  # type: ignore
+
+    load_dotenv()
+except Exception:
+    # If python-dotenv is not installed or .env is absent, continue — the
+    # application will rely on real environment variables and validation
+    # will fail early in `load_settings()` if required values are missing.
+    pass
+
 
 @dataclass(frozen=True)
 class Settings:
