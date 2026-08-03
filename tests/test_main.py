@@ -6,11 +6,14 @@ brief comment explaining possible exceptions and recommended fixes.
 """
 
 import builtins
-import pytest
+import os
+import sys
 
-from ai_client import AiClientError
-import main
+# Allow running this file directly with `python tests/test_main.py`.
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
+from src import main
+from src.ai_client import AiClientError
 
 def test_quit_immediately(monkeypatch):
     """If the user immediately types 'quit' the program exits with code 0.

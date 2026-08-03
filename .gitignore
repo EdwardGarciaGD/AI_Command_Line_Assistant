@@ -1,4 +1,5 @@
-ai-command-assistant/.env
 .env
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+.pytest_cache/

@@ -4,11 +4,11 @@ Simple CLI tool to ask questions to an LLM and receive text responses.
 
 Files and what they do:
 
-main.py: The program you run. Shows a welcome message, asks you to type a question, sends that question to the AI client, prints the AI's reply, and lets you quit.
+src/main.py: The program entrypoint. Shows a welcome message, asks you to type a question, sends that question to the AI client, prints the AI's reply, and lets you quit.
 
-ai_client.py: Handles talking to the AI provider. It sends your question over HTTP, retries on temporary failures, and returns the model's text. All API details live here so the rest of the app stays clean.
+src/ai_client.py: Handles talking to the AI provider. It sends your question over HTTP, retries on temporary failures, and returns the model's text. All API details live here so the rest of the app stays clean.
 
-config.py: Loads configuration like the API key, base URL, model name, and timeout from environment variables. It validates these settings so the app fails early if something is missing.
+src/config.py: Loads configuration like the API key, base URL, model name, and timeout from environment variables. It validates these settings so the app fails early if something is missing.
 
 requirements.txt: Lists the Python packages the project needs (for example, `requests`). Use it to install dependencies.
 
@@ -34,10 +34,10 @@ pip install -r requirements.txt
 4. Run the assistant:
 
 ```bash
-python main.py
+python -m src.main
 ```
 
 Notes:
 Secrets must never be hardcoded; use environment variables or a secrets manager.
 
-ai_client.py contains retry and error-handling logic so main.py stays simple and focused on I/O.
+src/ai_client.py contains retry and error-handling logic so src/main.py stays simple and focused on I/O.
